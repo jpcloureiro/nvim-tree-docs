@@ -25,11 +25,11 @@ autoload = _2_
 local function _3_(...)
   local ok_3f_0_, val_0_ = nil, nil
   local function _3_()
-    return {autoload("nvim-tree-docs.collector"), autoload("nvim-tree-docs.aniseed.core"), autoload("nvim-treesitter.ts_utils"), autoload("nvim-tree-docs.utils")}
+    return {autoload("nvim-tree-docs.collector"), autoload("nvim-tree-docs.aniseed.core"), autoload("nvim-treesitter.ts_utils"), autoload("nvim-tree-docs.utils"), autoload("vim.treesitter.query")}
   end
   ok_3f_0_, val_0_ = pcall(_3_)
   if ok_3f_0_ then
-    _0_["aniseed/local-fns"] = {autoload = {["ts-utils"] = "nvim-treesitter.ts_utils", collectors = "nvim-tree-docs.collector", core = "nvim-tree-docs.aniseed.core", utils = "nvim-tree-docs.utils"}}
+    _0_["aniseed/local-fns"] = {autoload = {["ts-utils"] = "nvim-treesitter.ts_utils", collectors = "nvim-tree-docs.collector", core = "nvim-tree-docs.aniseed.core", utils = "nvim-tree-docs.utils", tsq = "vim.treesitter.query"}}
     return val_0_
   else
     return print(val_0_)
@@ -39,6 +39,7 @@ local _local_0_ = _3_(...)
 local collectors = _local_0_[1]
 local core = _local_0_[2]
 local ts_utils = _local_0_[3]
+local tsq = _local_0_[4]
 local utils = _local_0_[4]
 local _2amodule_2a = _0_
 local _2amodule_name_2a = "nvim-tree-docs.template"
@@ -69,7 +70,7 @@ do
         else
           tsnode = node
         end
-        local lines = ts_utils.get_node_text(tsnode)
+        local lines = tsq.get_node_text(tsnode)
         if multi then
           return lines
         else

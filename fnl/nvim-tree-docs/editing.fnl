@@ -9,7 +9,7 @@
          : doc-lang
          : node
          : bufnr} args
-        doc-lines (ts-utils.get_node_text node bufnr)
+        doc-lines (tsq.get_node_text node bufnr)
         doc-string (table.concat doc-lines "\n")
         parser (vim.treesitter.get_string_parser doc-string doc-lang)
         query (tsq.get_query doc-lang :edits)

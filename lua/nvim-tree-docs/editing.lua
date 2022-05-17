@@ -59,7 +59,7 @@ do
       local doc_lang = _let_0_["doc-lang"]
       local lang = _let_0_["lang"]
       local node = _let_0_["node"]
-      local doc_lines = ts_utils.get_node_text(node, bufnr)
+      local doc_lines = tsq.get_node_text(node, bufnr)
       local doc_string = table.concat(doc_lines, "\n")
       local parser = vim.treesitter.get_string_parser(doc_string, doc_lang)
       local query = tsq.get_query(doc_lang, "edits")

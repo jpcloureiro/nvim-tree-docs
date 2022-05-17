@@ -2,7 +2,8 @@
   {autoload {core nvim-tree-docs.aniseed.core
              utils nvim-tree-docs.utils
              collectors nvim-tree-docs.collector
-             ts-utils nvim-treesitter.ts_utils}})
+             ts-utils nvim-treesitter.ts_utils
+             tsq vim.treesitter.query}})
 
 (import-macros {: log} "nvim-tree-docs.macros")
 
@@ -12,7 +13,7 @@
   (let [default-value (or default "")]
     (if (and node (= (type node) :table))
       (let [tsnode (if node.node node.node node)
-            lines (ts-utils.get_node_text tsnode)]
+            lines (tsq.get_node_text tsnode)]
         (if multi
           lines
           (let [line (. lines 1)]
